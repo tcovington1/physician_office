@@ -1,0 +1,22 @@
+<h1 class = 'ui header'>Physicians</h1>
+
+<table class="ui striped table">
+<thead>
+  <tr class="ui striped table center aligned">
+  <th>Physican Name</th>
+  <th>Physican Specialty</th>
+  <th>Show</th>
+  <th>Delete</th>
+  </tr>
+</thead>
+<tbody>
+<% @physicians.each do |p|%>
+<tr class="center aligned">
+  <td data-label="Name"><%= p.name %></td>
+  <td data-label="Specialty"><%= p.specialty %></td>
+  <td><%= link_to "Show Appointment"%></td>
+  <td><%= link_to "Delete"%></td>
+<tr>
+</tr>
+<% end%>
+</table>
