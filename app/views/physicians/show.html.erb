@@ -1,20 +1,22 @@
-<h1 class = 'ui header'></h1>
+<h1 class = 'ui header'>Appointments for <%= @physician.name%></h1>
 
 <table class="ui striped table">
 <thead>
   <tr class="ui striped table center aligned">
-  <th>Physican Name</th>
-  <th>Physican Specialty</th>
+  <th>Appointment Date</th>
+  <th>Appointment Time</th>
   <th>Show</th>
+  <th>Edit</th>
   <th>Delete</th>
   </tr>
 </thead>
 <tbody>
-<% @physicians.each do |p|%>
+<% @physician.appointments.each do |a|%>
 <tr class="center aligned">
-  <td data-label="Name"><%= p.name %></td>
-  <td data-label="Specialty"><%= p.specialty %></td>
-  <td><%= link_to "Show Appointment"%></td>
+  <td data-label="date"><%= a.date %></td>
+  <td data-label="time"><%= a.time %></td>
+  <td><%= link_to "Show Patient", physician_appointment_path(@physician, a.id)%></td>
+  <td><%= link_to "Edit Appointment", physician_appointment_path(@physician, a.id)%></td>
   <td><%= link_to "Delete"%></td>
 <tr>
 </tr>
