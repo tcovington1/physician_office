@@ -17,7 +17,7 @@
   <td data-label="date"><%= a.date %></td>
   <td data-label="time"><%= a.time %></td>
   <td><%= link_to "Show Patient", physician_appointment_path(@physician, a.id)%></td>
-  <td><%= link_to "Edit Appointment", physician_appointment_path(@physician, a.id)%></td>
+  <td><%= link_to "Edit Appointment", edit_physician_appointment_path(@physician, a.id)%></td>
   <td><%= link_to "Delete"%></td>
 <tr>
 </tr>
