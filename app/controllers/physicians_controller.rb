@@ -12,9 +12,9 @@ class PhysiciansController < ApplicationController
   end
 
   def create
-    @physician = User.new(physician_params)
+    @physician = Physician.new(physician_params)
     if @physician.save
-      redirect_to @physician
+      redirect_to root_path
     else
       render :new
     end
@@ -25,14 +25,14 @@ class PhysiciansController < ApplicationController
 
   def update
     if @physician.update(physician_params)
-      redirect_to @physician
+      redirect_to root_path
     else
       render :edit
     end
   end
 
   def destroy
-    @patient.destroy
+    @physician.destroy
     redirect_to physicians_path
   end
 

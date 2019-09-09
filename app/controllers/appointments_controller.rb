@@ -1,5 +1,8 @@
 class AppointmentsController < ApplicationController
   before_action :set_physician
+ 
+  before_action :set_appointment, except: [:new]
+
   def index
     @appointments = @appointment.physician.where(name: @physician.name)
   end
@@ -9,9 +12,37 @@ class AppointmentsController < ApplicationController
   end
 
   def new
+    @physician = Physician.all - @patient.physician
+    @appointment = @patient.appointments.new
+  end
+
+  def create
+    @appointment = @patient.appointments.new(appointment_params)
+
+    if @appointment.save
+      redirect_to physician_path(@physician)
+    else
+      render :new
+    end
   end
 
   def edit
+     
+  end
+
+  def update
+    if @appointment.update(appointment_params)
+      redirect_to physician_appointment_path(@physician)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @appointment = @physician.appointments.find(params[:id])
+    @appointment.destroy
+    
+    redirect_to physician_path(@physician)
   end
 
   private
@@ -26,5 +57,11 @@ class AppointmentsController < ApplicationController
   def set_physician
     @physician = Physician.find(params[:physician_id])
   end
+
+  def set_appointment
+      @appointment = Appointment.find(params[:id])
+  end
+
+
 
 end

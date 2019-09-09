@@ -21,3 +21,9 @@
 </tr>
 
 </table>
+
+<button class='ui button'><%= link_to 'Back', physician_appointment_path(@physician, @appointment)%>
+<button class="ui button">
+  <%= link_to 'Add an Appointment', new_physician_appointment_path(@physician, @appointment)%>
+</button>
+

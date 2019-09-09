@@ -1,2 +1,20 @@
-<h1>Patients#edit</h1>
-<p>Find me in app/views/patients/edit.html.erb</p>
+<h1>Edit Patient</h1>
+<!-- form_with(model: @trip, local: true, class: 'form') -->
+<div class="ui form">
+ <%= form_for [@appointment, @patient] do |f| %>
+   <%= f.label :name %>
+   <%= f.text_field :name %>
+   <br><br>
+   <%= f.label :age %>
+   <%= f.text_field :age %>
+   <br>
+   <%= f.label :phone_number %>
+   <%= f.text_field :phone_number %>
+   <br><br>
+   <br><br>
+   <div><button class="ui button"> <%= f.submit %></button></div>
+   
+   <button class="ui button"> <%= link_to 'Back', root_path%> </button>
+   <br><br>
+ <% end %>
+</div>
