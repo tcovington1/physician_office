@@ -9,6 +9,7 @@
 <table class="ui striped table">
 <thead>
   <tr class="ui striped table center aligned">
+  <th>Physican ID</th>
   <th>Physican Name</th>
   <th>Physican Specialty</th>
   <th>Show</th>
@@ -19,11 +20,12 @@
 <tbody>
 <% @physicians.each do |p|%>
 <tr class="center aligned">
+  <td data-label="ID"><%= p.id %></td>
   <td data-label="Name"><%= p.name %></td>
   <td data-label="Specialty"><%= p.specialty %></td>
   <td><%= link_to "Show Appointments", p %></td>
   <td><%= link_to "Edit Physician", edit_physician_path(p.id) %></td>
-  <td><%= link_to "Delete"%></td>
+  <td><%= link_to "Delete", physician_path(p.id), method: :delete%></td>
 <tr>
 </tr>
 <% end%>
