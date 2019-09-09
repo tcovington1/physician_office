@@ -12,6 +12,7 @@
   <th>Physican Name</th>
   <th>Physican Specialty</th>
   <th>Show</th>
+  <th>Edit</th>
   <th>Delete</th>
   </tr>
 </thead>
@@ -20,7 +21,8 @@
 <tr class="center aligned">
   <td data-label="Name"><%= p.name %></td>
   <td data-label="Specialty"><%= p.specialty %></td>
-  <td><%= link_to "Show Appointment", p %></td>
+  <td><%= link_to "Show Appointments", p %></td>
+  <td><%= link_to "Edit Physician", edit_physician_path(p.id) %></td>
   <td><%= link_to "Delete"%></td>
 <tr>
 </tr>

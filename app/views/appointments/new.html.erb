@@ -1,2 +1,19 @@
-<h1>Appointments#new</h1>
-<p>Find me in app/views/appointments/new.html.erb</p>
+<h1>Add an Appointment</h1>
+
+<!-- form_with(model: @location, local: true, class: 'form') -->
+<div class="ui form">
+
+    <%= form_for (@physician, @appointment) do |l| %>
+      <%= l.label :date %>
+      <%= l.text_field :date, required: true %>
+      <br><br>
+
+      <%= l.label :time %>
+      <%= l.text_field :time, required: true %>
+      <br><br>
+
+      <%= l.submit %>
+      <br><br>
+
+</div>
+<% end %>

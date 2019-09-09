@@ -1,2 +1,16 @@
-<h1>Physicians#new</h1>
-<p>Find me in app/views/physicians/new.html.erb</p>
+<h1>Add a Physician</h1>
+<!-- form_with(model: @trip, local: true, class: 'form') -->
+<div class="ui form">
+ <%= form_for @physician do |f| %>
+   <%= f.label :name %>
+   <%= f.text_field :name %>
+   <br><br>
+    <%= f.label :specialty %>
+    <%= f.select :specialty, ['Family Medicine', 'Cardiology', 'Obstetrics', 'Dermatology'], required: true, placeholder: "Specialty" %>
+   <br>
+   <br><br>
+   <button class="ui button"> <%= f.submit %></button>
+   
+   <button class="ui button"> <%= link_to 'Back', root_path%> </button>
+   <br><br>
+ <% end %>
