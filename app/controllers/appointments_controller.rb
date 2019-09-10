@@ -12,8 +12,10 @@ class AppointmentsController < ApplicationController
   end
 
   def new
-    @physician = Physician.all - @patient.physician
-    @appointment = @patient.appointments.new
+    # @physician = Physician.all
+    # Set a variable @patients so you can loop/map through
+    # your patients for a drop down select so create the association
+    @appointment = @physician.appointments.new
   end
 
   def create
@@ -40,6 +42,7 @@ class AppointmentsController < ApplicationController
 
   def destroy
     @appointment = @physician.appointments.find(params[:id])
+    binding.pry
     @appointment.destroy
     
     redirect_to physician_path(@physician)
