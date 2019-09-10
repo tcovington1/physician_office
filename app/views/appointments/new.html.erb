@@ -3,13 +3,17 @@
 
 <div class="ui form">
 
-    <%= form_for (@physician, @appointment) do |f| %>
+    <%= form_for [@physician, @appointment] do |f| %>
       <%= f.label :date %>
       <%= f.text_field :date %>
       <br><br>
 
       <%= f.label :time %>
       <%= f.text_field :time%>
+      <br><br>
+
+
+      <%# map through the @patients variable you made to select a patient %>
       <br><br>
 
       <%= f.submit %>
