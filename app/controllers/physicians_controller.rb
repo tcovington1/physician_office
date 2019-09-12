@@ -9,6 +9,8 @@ class PhysiciansController < ApplicationController
 
   def new
     @physician = Physician.new
+    @patients = Patient.all
+    render :new
   end
 
   def create

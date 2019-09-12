@@ -1,2 +1,18 @@
-<h1>Patients#new</h1>
-<p>Find me in app/views/patients/new.html.erb</p>
+<h1>Add a Patient</h1>
+<!-- form_with(model: @trip, local: true, class: 'form') -->
+<div class="ui form">
+ <%= form_for @patient do |f| %>
+   <%= f.label :name %>
+   <%= f.text_field :name %>
+   <br><br>
+    <%= f.label :age %>
+    <%= f.text_field :age %>
+   <br>
+   <%= f.label :phone_number %>
+    <%= f.text_field :phone_number %>
+   <br><br>
+   <button class="ui button"> <%= f.submit %></button>
+   
+   <button class="ui button"> <%= link_to 'Back', root_path%> </button>
+   <br><br>
+ <% end %>

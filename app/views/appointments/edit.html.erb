@@ -8,6 +8,8 @@
    <%= f.label :time %>
    <%= f.text_field :time %>
    <br><br>
+    <%= f.label :patient%>
+    <%= f.select :patient_id, @patients.collect { |pa| [pa.name, pa.id] } %>
    <br><br>
    <div><button class="ui button"> <%= f.submit %></button></div>
    

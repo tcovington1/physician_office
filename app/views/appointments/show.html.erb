@@ -7,17 +7,21 @@
   <th>Patient's Name</th>
   <th>Patient's Age</th>
   <th>Patient's Phone</th>
+  <th>Date</th>
+  <th>Time</th>
   <th>Edit</th>
   <th>Delete</th>
   </tr>
 </thead>
 <tbody>
 <tr class="center aligned">
-  <td data-label="date"><%= @appointment.patient.name %></td>
-  <td data-label="time"><%= @appointment.patient.age %></td>
-  <td data-label="time"><%= @appointment.patient.phone_number %></td>
+  <td data-label="name"><%= @appointment.patient.name %></td>
+  <td data-label="age"><%= @appointment.patient.age %></td>
+  <td data-label="phone"><%= @appointment.patient.phone_number %></td>
+  <td data-label="date"><%= @appointment.date%></td>
+  <td data-label="time"><%= @appointment.time %></td>
   <td><%= link_to "Edit Patient", edit_patient_path(@appointment.patient.id)%></td>
-  <td><%= link_to "Delete"%></td>
+  <td><%= link_to '<i class="trash alternate icon"></i>'.html_safe, @patient, method: :delete %></td>
 </tr>
 
 </table>

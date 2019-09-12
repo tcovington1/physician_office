@@ -1,7 +1,7 @@
 class AppointmentsController < ApplicationController
   before_action :set_physician
  
-  before_action :set_appointment, except: [:new]
+  before_action :set_appointment, except: [:new, :create]
 
   def index
     @appointments = @appointment.physician.where(name: @physician.name)
@@ -15,21 +15,25 @@ class AppointmentsController < ApplicationController
     # @physician = Physician.all
     # Set a variable @patients so you can loop/map through
     # your patients for a drop down select so create the association
+    @patients = Patient.all
     @appointment = @physician.appointments.new
+    
   end
 
   def create
-    @appointment = @patient.appointments.new(appointment_params)
+    @patients = Patient.all
+    @appointment = @physician.appointments.new(appointment_params)
 
     if @appointment.save
-      redirect_to physician_path(@physician)
+      redirect_to physician_appointments_path(@appointment)
     else
       render :new
     end
   end
 
   def edit
-     
+    @patients = Patient.all
+     render :edit
   end
 
   def update
@@ -42,7 +46,7 @@ class AppointmentsController < ApplicationController
 
   def destroy
     @appointment = @physician.appointments.find(params[:id])
-    binding.pry
+   
     @appointment.destroy
     
     redirect_to physician_path(@physician)
